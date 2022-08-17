@@ -1,12 +1,31 @@
 #!/usr/bin/env node
-// const { Command } = require('commander'); // (normal include)
-const { Command } = require('/home/linux/frontend-project-lvl2/node_modules/commander/lib/command.js'); // include commander in git clone of commander repo
-const program = new Command();
+import { program } from 'commander';
+import readFile from '../src/index.js';
+import findDifference from '../src/findDifference.js';
 
-program
+const genDiff = () => {
+
+  program
   .description('Compares two configuration files and shows a difference.')
   .version('1.0', '-V, --version', 'output the version number')
-  .argument('<filepath1>')
-  .argument('<filepath2>')
-  .option('-f, --format <type>', 'output format');
-program.parse();
+  .helpOption('-h, --help', 'output usage information')
+  .option('-f, --format <type>', 'output format')
+    .argument('<filepath1>')
+    .argument('<filepath2>')
+    .action((filepath1, filepath2) => {
+      if (filepath1.endsWith('.json') && filepath2.endsWith('.json')) {
+        const file1Content = readFile(filepath1);
+        const file2Content = readFile(filepath2);
+
+        const difference = findDifference(file1Content, file2Content);
+
+        console.log(difference);
+      } else {
+        console.log('gendiff is available only for json format');
+      }
+    });
+
+  program.parse();
+};
+
+genDiff();
