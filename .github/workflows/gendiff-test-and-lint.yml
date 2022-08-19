@@ -1,0 +1,22 @@
+name: 'gendiff test and lint'
+on: push
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.2
+      - uses: actions/setup-node@v3.4.1
+        name: 'setup node'
+        with: 
+          node-version: '17.9.0'
+      - name: 'make install'
+        run: make install
+      - name: 'make lint'
+        run: make lint
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE }}
+        with:
+            coverageCommand: make test-coverage
+            debug: false
