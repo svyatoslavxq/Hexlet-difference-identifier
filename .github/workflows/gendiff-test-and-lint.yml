@@ -1,22 +1,30 @@
-name: 'gendiff test and lint'
-on: push
+name: 'test my project'
+on:
+  - push
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  build:
+    runs-on:  ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
-      - uses: actions/checkout@v2.4.2
-      - uses: actions/setup-node@v3.4.1
-        name: 'setup node'
-        with: 
-          node-version: '17.9.0'
-      - name: 'make install'
-        run: make install
-      - name: 'make lint'
-        run: make lint
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v3.0.0
-        env:
+    - uses: actions/checkout@v2
+    - name: Use Node ${{ matrix.node }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node }}
+    - name: npm install
+      run: |
+        make install
+      env:
+        CI: true
+    - name: Run liner
+      run: |
+        make lint
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-            coverageCommand: make test-coverage
-            debug: false
+      with:
+          coverageCommand: make test-coverage
+          debug: true
