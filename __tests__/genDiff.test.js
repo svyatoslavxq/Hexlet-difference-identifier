@@ -12,7 +12,8 @@ const getFixturePath = (filename) => resolve(__dirname, '..', '__fixtures__', fi
 
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
-const expectedFormattedResult = readFile('expectedOutput.txt');
+const stylishResult = readFile('expectedOutput.txt');
+const plainResult = readFile('expectedOutputPlain.txt');
 
 const formatsOfFiles = ['json', 'yaml', 'yml'];
 
@@ -20,5 +21,6 @@ test.each(formatsOfFiles)('Formats of files (.json .yaml .yml)', (extension) => 
   const firstFileName = `${process.cwd()}/__fixtures__/file1.${extension}`;
   const secondFileName = `${process.cwd()}/__fixtures__/file2.${extension}`;
 
-  expect(genDiff(firstFileName, secondFileName, 'formatted')).toEqual(expectedFormattedResult);
+  expect(genDiff(firstFileName, secondFileName, 'stylish')).toEqual(stylishResult);
+  expect(genDiff(firstFileName, secondFileName, 'plain')).toEqual(plainResult);
 });

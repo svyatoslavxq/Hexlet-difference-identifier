@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import process from 'node:process';
-import formatter from './stylish.js';
 import makeTree from './makeTree.js';
 import parse from './parser.js';
+import format from './formatters/index.js';
 
 const readFile = (filepath) => {
   const fullPath = path.resolve(process.cwd(), filepath);
@@ -14,7 +14,7 @@ const readFile = (filepath) => {
 
 const fileFormat = (filename) => path.extname(filename).slice(1);
 
-const genDiff = (firstFilePath, secondFilePath) => {
+const genDiff = (firstFilePath, secondFilePath, formatName = 'stylish') => {
   const firstFileFormat = fileFormat(firstFilePath);
   const secondFileFormat = fileFormat(secondFilePath);
 
@@ -26,6 +26,6 @@ const genDiff = (firstFilePath, secondFilePath) => {
 
   const tree = makeTree(firstParsedData, secondParsedData);
 
-  return formatter(tree);
+  return format(tree, formatName);
 };
 export default genDiff;
