@@ -1,29 +1,29 @@
 import _ from 'lodash';
 
-const makeTree = (data1, data2) => {
-  const keys = Object.keys({ ...data1, ...data2 });
+const makeTree = (firstData, secondData) => {
+  const keys = Object.keys({ ...firstData, ...secondData });
   const sortedKeys = _.sortBy(keys);
 
   return sortedKeys.map((key) => {
-    const value1 = data1[key];
-    const value2 = data2[key];
+    const firstValue = firstData[key];
+    const secondValue = secondData[key];
 
-    if (!_.has(data1, key)) {
-      return { type: 'add', key, val: value2 };
+    if (!_.has(firstData, key)) {
+      return { type: 'add', key, value: secondValue };
     }
-    if (!_.has(data2, key)) {
-      return { type: 'remove', key, val: value1 };
+    if (!_.has(secondData, key)) {
+      return { type: 'remove', key, value: firstValue };
     }
-    if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
-      return { type: 'recursion', key, children: makeTree(value1, value2) };
+    if (_.isPlainObject(firstValue) && _.isPlainObject(secondValue)) {
+      return { type: 'recursion', key, children: makeTree(firstValue, secondValue) };
     }
-    if (!_.isEqual(value1, value2)) {
+    if (!_.isEqual(firstValue, secondValue)) {
       return {
-        type: 'updated', key, val1: value1, val2: value2,
+        type: 'updated', key, value1: firstValue, value2: secondValue,
       };
     }
 
-    return { type: 'same', key, val: value1 };
+    return { type: 'same', key, value: firstValue };
   });
 };
 

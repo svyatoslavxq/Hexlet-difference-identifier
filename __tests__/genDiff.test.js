@@ -12,11 +12,11 @@ const getFixturePath = (filename) => resolve(__dirname, '..', '__fixtures__', fi
 
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
-const expectedFormattedResult = readFile('expected.txt');
+const expectedFormattedResult = readFile('expectedOutput.txt');
 
-const formatsOfFiles = ['json'];
+const formatsOfFiles = ['json', 'yaml', 'yml'];
 
-test.each(formatsOfFiles)('diff formats of files (.json)', (extension) => {
+test.each(formatsOfFiles)('Formats of files (.json .yaml .yml)', (extension) => {
   const firstFileName = `${process.cwd()}/__fixtures__/file1.${extension}`;
   const secondFileName = `${process.cwd()}/__fixtures__/file2.${extension}`;
 

@@ -19,13 +19,13 @@ const formatTree = (innerTree) => {
 
     switch (node.type) {
       case 'add':
-        return getValue(node.val, '+');
+        return getValue(node.value, '+');
       case 'remove':
-        return getValue(node.val, '-');
+        return getValue(node.value, '-');
       case 'same':
-        return getValue(node.val, ' ');
+        return getValue(node.value, ' ');
       case 'updated':
-        return `${getValue(node.val1, '-')}${getValue(node.val2, '+')}`;
+        return `${getValue(node.value1, '-')}${getValue(node.value2, '+')}`;
       case 'recursion':
         return `${indent(depth)}  ${node.key}: {\n${iterate(node.children, depth + 1).join('')}${indent(depth)}  }\n`;
       default:
