@@ -19,7 +19,7 @@ const makeTree = (firstData, secondData) => {
     }
     if (!_.isEqual(firstValue, secondValue)) {
       return {
-        type: 'updated', key, value1: firstValue, value2: secondValue,
+        type: 'updated', key, valueOne: firstValue, valueTwo: secondValue,
       };
     }
 

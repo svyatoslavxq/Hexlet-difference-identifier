@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import process from 'node:process';
-import formatter from './formatter.js';
+import formatter from './stylish.js';
 import makeTree from './makeTree.js';
 import parse from './parser.js';
 

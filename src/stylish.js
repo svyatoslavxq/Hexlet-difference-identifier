@@ -25,7 +25,7 @@ const formatTree = (innerTree) => {
       case 'same':
         return getValue(node.value, ' ');
       case 'updated':
-        return `${getValue(node.value1, '-')}${getValue(node.value2, '+')}`;
+        return `${getValue(node.valueOne, '-')}${getValue(node.valueTwo, '+')}`;
       case 'recursion':
         return `${indent(depth)}  ${node.key}: {\n${iterate(node.children, depth + 1).join('')}${indent(depth)}  }\n`;
       default:
