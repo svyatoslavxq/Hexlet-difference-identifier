@@ -14,6 +14,7 @@ const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
 const stylishResult = readFile('expectedOutput.txt');
 const plainResult = readFile('expectedOutputPlain.txt');
+const jsonResult = readFile('expectedOutputJson.txt');
 
 const formatsOfFiles = ['json', 'yaml', 'yml'];
 
@@ -23,4 +24,5 @@ test.each(formatsOfFiles)('Formats of files (.json .yaml .yml)', (extension) => 
 
   expect(genDiff(firstFileName, secondFileName, 'stylish')).toEqual(stylishResult);
   expect(genDiff(firstFileName, secondFileName, 'plain')).toEqual(plainResult);
+  expect(genDiff(firstFileName, secondFileName, 'json')).toEqual(jsonResult);
 });

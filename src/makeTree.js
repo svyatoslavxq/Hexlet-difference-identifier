@@ -8,16 +8,16 @@ const makeTree = (firstData, secondData) => {
     const firstValue = firstData[key];
     const secondValue = secondData[key];
 
-    if (!_.has(firstData, key)) {
+    if (_.has(firstData, key) === false) {
       return { type: 'add', key, value: secondValue };
     }
-    if (!_.has(secondData, key)) {
+    if (_.has(secondData, key) === false) {
       return { type: 'remove', key, value: firstValue };
     }
     if (_.isPlainObject(firstValue) && _.isPlainObject(secondValue)) {
       return { type: 'recursion', key, children: makeTree(firstValue, secondValue) };
     }
-    if (!_.isEqual(firstValue, secondValue)) {
+    if (_.isEqual(firstValue, secondValue) === false) {
       return {
         type: 'updated', key, valueOne: firstValue, valueTwo: secondValue,
       };
