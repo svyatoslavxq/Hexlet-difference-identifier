@@ -14,10 +14,12 @@
 
 <h2><b>Команды</b></h2>
 
-<  -V, --version        output the version number
-  -f, --format [type]  output format (default: "stylish")
-  -h, --help           output usage information>
 
+```
+  -V, --version        output the version number
+  -f, --format [type]  output format (default: "stylish")
+  -h, --help           output usage information
+```
 ---
 
 <h3><b>Установка</b></h3>
