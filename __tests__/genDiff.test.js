@@ -16,13 +16,16 @@ const stylishResult = readFile('expectedOutputStylish.txt');
 const plainResult = readFile('expectedOutputPlain.txt');
 const jsonResult = readFile('expectedOutputJson.txt');
 
-const formatsOfFiles = ['json', 'yaml', 'yml'];
-
-test.each(formatsOfFiles)('Formats of files (.json .yaml .yml)', (extension) => {
-  const firstFileName = `${process.cwd()}/__fixtures__/file1.${extension}`;
-  const secondFileName = `${process.cwd()}/__fixtures__/file2.${extension}`;
-
-  expect(genDiff(firstFileName, secondFileName, 'stylish')).toEqual(stylishResult);
-  expect(genDiff(firstFileName, secondFileName, 'plain')).toEqual(plainResult);
-  expect(genDiff(firstFileName, secondFileName, 'json')).toEqual(jsonResult);
+describe.each([
+  ['__fixtures__/file1.json', '__fixtures__/file2.json', 'stylish', stylishResult],
+  ['__fixtures__/file1.json', '__fixtures__/file2.json', 'plain', plainResult],
+  ['__fixtures__/file1.json', '__fixtures__/file2.json', 'json', jsonResult],
+  ['__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'stylish', stylishResult],
+  ['__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'plain', plainResult],
+  ['__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'json', jsonResult],
+])('gendiff', (firstFilePath, secondFilePath, format, expectedOutput) => {
+  test(`${format}`, () => {
+    const result = genDiff(firstFilePath, secondFilePath, format);
+    expect(result).toEqual(expectedOutput);
+  });
 });
