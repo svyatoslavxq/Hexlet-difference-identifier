@@ -9,10 +9,10 @@ const makeTree = (firstData, secondData) => {
     const secondValue = secondData[key];
 
     if (!_.has(firstData, key)) {
-      return { type: 'add', key, value: secondValue };
+      return { type: 'added', key, value: secondValue };
     }
     if (!_.has(secondData, key)) {
-      return { type: 'remove', key, value: firstValue };
+      return { type: 'removed', key, value: firstValue };
     }
     if (_.isPlainObject(firstValue) && _.isPlainObject(secondValue)) {
       return { type: 'nested', key, children: makeTree(firstValue, secondValue) };
@@ -23,7 +23,7 @@ const makeTree = (firstData, secondData) => {
       };
     }
 
-    return { type: 'same', key, value: firstValue };
+    return { type: 'unchanged', key, value: firstValue };
   });
 };
 

@@ -18,11 +18,11 @@ const formatTree = (innerTree) => {
     const getValue = (value, sign) => `${indent(depth)}${sign} ${node.key}: ${stringify(value, depth)}\n`;
 
     switch (node.type) {
-      case 'add':
+      case 'added':
         return getValue(node.value, '+');
-      case 'remove':
+      case 'removed':
         return getValue(node.value, '-');
-      case 'same':
+      case 'unchanged':
         return getValue(node.value, ' ');
       case 'updated':
         return `${getValue(node.valueOne, '-')}${getValue(node.valueTwo, '+')}`;

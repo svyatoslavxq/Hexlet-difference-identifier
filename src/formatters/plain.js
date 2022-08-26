@@ -11,13 +11,13 @@ const stringify = (value) => {
 
 const plain = (tree) => {
   const format = (nodes, parent) => nodes
-    .filter((node) => node.type !== 'same')
+    .filter((node) => node.type !== 'unchanged')
     .map((node) => {
       const property = parent ? `${parent}.${node.key}` : node.key;
       switch (node.type) {
-        case 'add':
+        case 'added':
           return `Property '${property}' was added with value: ${stringify(node.value)}`;
-        case 'remove':
+        case 'removed':
           return `Property '${property}' was removed`;
         case 'updated':
           return `Property '${property}' was updated. From ${stringify(node.valueOne)} to ${stringify(node.valueTwo)}`;

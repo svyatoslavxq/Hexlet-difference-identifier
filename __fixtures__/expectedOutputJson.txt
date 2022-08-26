@@ -4,17 +4,17 @@
     "key": "common",
     "children": [
       {
-        "type": "add",
+        "type": "added",
         "key": "follow",
         "value": false
       },
       {
-        "type": "same",
+        "type": "unchanged",
         "key": "setting1",
         "value": "Value 1"
       },
       {
-        "type": "remove",
+        "type": "removed",
         "key": "setting2",
         "value": 200
       },
@@ -25,12 +25,12 @@
         "valueTwo": null
       },
       {
-        "type": "add",
+        "type": "added",
         "key": "setting4",
         "value": "blah blah"
       },
       {
-        "type": "add",
+        "type": "added",
         "key": "setting5",
         "value": {
           "key5": "value5"
@@ -53,12 +53,12 @@
             ]
           },
           {
-            "type": "same",
+            "type": "unchanged",
             "key": "key",
             "value": "value"
           },
           {
-            "type": "add",
+            "type": "added",
             "key": "ops",
             "value": "vops"
           }
@@ -77,7 +77,7 @@
         "valueTwo": "bars"
       },
       {
-        "type": "same",
+        "type": "unchanged",
         "key": "foo",
         "value": "bar"
       },
@@ -92,7 +92,7 @@
     ]
   },
   {
-    "type": "remove",
+    "type": "removed",
     "key": "group2",
     "value": {
       "abc": 12345,
@@ -102,7 +102,7 @@
     }
   },
   {
-    "type": "add",
+    "type": "added",
     "key": "group3",
     "value": {
       "deep": {
