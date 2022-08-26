@@ -15,7 +15,7 @@ const makeTree = (firstData, secondData) => {
       return { type: 'remove', key, value: firstValue };
     }
     if (_.isPlainObject(firstValue) && _.isPlainObject(secondValue)) {
-      return { type: 'recursion', key, children: makeTree(firstValue, secondValue) };
+      return { type: 'nested', key, children: makeTree(firstValue, secondValue) };
     }
     if (!_.isEqual(firstValue, secondValue)) {
       return {
