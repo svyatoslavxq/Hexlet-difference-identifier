@@ -3,15 +3,13 @@ import _ from 'lodash';
 const indent = (depth, spaceCount = 4) => ' '.repeat(spaceCount * depth - 2);
 
 const stringify = (data, treeDepth) => {
-  if (typeof data !== 'object') {
-    return `${data}`;
-  }
-  if (data === null) { return null; }
+  if (_.isObject(data)) {
+    const lines = Object
+      .entries(data)
+      .map(([key, value]) => `${indent(treeDepth + 1)}  ${key}: ${stringify(value, treeDepth + 1)}`);
 
-  const lines = Object
-    .entries(data)
-    .map(([key, value]) => `${indent(treeDepth + 1)}  ${key}: ${stringify(value, treeDepth + 1)}`);
-  return ['{', ...lines, `${indent(treeDepth)}  }`].join('\n');
+    return ['{', ...lines, `${indent(treeDepth)}  }`].join('\n');
+  } return `${data}`;
 };
 
 const makeStylishTree = (innerTree) => {
