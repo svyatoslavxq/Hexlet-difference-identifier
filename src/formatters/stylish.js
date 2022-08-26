@@ -3,7 +3,7 @@ import _ from 'lodash';
 const indent = (depth, spaceCount = 4) => ' '.repeat(spaceCount * depth - 2);
 
 const stringify = (data, treeDepth) => {
-  if (!_.isObject(data)) {
+  if (typeof data !== 'object') {
     return `${data}`;
   }
   if (data === null) { return null; }
@@ -11,7 +11,6 @@ const stringify = (data, treeDepth) => {
   const lines = Object
     .entries(data)
     .map(([key, value]) => `${indent(treeDepth + 1)}  ${key}: ${stringify(value, treeDepth + 1)}`);
-
   return ['{', ...lines, `${indent(treeDepth)}  }`].join('\n');
 };
 
