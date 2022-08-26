@@ -5,14 +5,19 @@ import makeTree from './makeTree.js';
 import parse from './parser.js';
 import format from './formatters/index.js';
 
-const readFile = (filepath) => {
-  const fullPath = path.resolve(process.cwd(), filepath);
-  const fileData = fs.readFileSync(fullPath, { encoding: 'utf-8', flag: 'r' }).toString();
+const buildAbsolutePath = (pathToBuild) => {
+  const absolutePath = path.resolve(process.cwd(), pathToBuild);
+
+  return absolutePath;
+};
+
+const readFile = (filePath) => {
+  const fileData = fs.readFileSync(buildAbsolutePath(filePath), { encoding: 'utf-8', flag: 'r' }).toString();
 
   return fileData;
 };
 
-const fileFormat = (filename) => path.extname(filename).slice(1);
+const fileFormat = (fileName) => path.extname(fileName).slice(1);
 
 const genDiff = (firstFilePath, secondFilePath, formatName = 'stylish') => {
   const firstFileFormat = fileFormat(firstFilePath);
