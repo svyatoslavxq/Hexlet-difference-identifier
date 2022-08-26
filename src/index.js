@@ -5,11 +5,7 @@ import makeTree from './makeTree.js';
 import parse from './parser.js';
 import format from './formatters/index.js';
 
-const buildAbsolutePath = (pathToBuild) => {
-  const absolutePath = path.resolve(process.cwd(), pathToBuild);
-
-  return absolutePath;
-};
+const buildAbsolutePath = (pathToBuild) => path.resolve(process.cwd(), pathToBuild);
 
 const readFile = (filePath) => {
   const fileData = fs.readFileSync(buildAbsolutePath(filePath), { encoding: 'utf-8', flag: 'r' }).toString();
@@ -29,8 +25,8 @@ const genDiff = (firstFilePath, secondFilePath, formatName = 'stylish') => {
   const firstParsedData = parse(firstFileFormat, firstFileContent);
   const secondParsedData = parse(secondFileFormat, secondFileContent);
 
-  const tree = makeTree(firstParsedData, secondParsedData);
+  const innerTree = makeTree(firstParsedData, secondParsedData);
 
-  return format(tree, formatName);
+  return format(innerTree, formatName);
 };
 export default genDiff;

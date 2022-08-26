@@ -2,16 +2,16 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-const formatTree = (tree, formatName) => {
+const formatTree = (innerTree, formatName) => {
   switch (formatName) {
     case 'stylish': {
-      return stylish(tree);
+      return stylish(innerTree);
     }
     case 'plain': {
-      return plain(tree);
+      return plain(innerTree);
     }
     case 'json': {
-      return json(tree);
+      return json(innerTree);
     }
     default:
       throw new Error(`${formatName} is wrong format.`);
