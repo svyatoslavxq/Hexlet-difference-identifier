@@ -1,16 +1,18 @@
 import _ from 'lodash';
 
 const indent = (depth, spaceCount = 4) => ' '.repeat(spaceCount * depth - 2);
-const test = '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
 
 const stringify = (data, treeDepth) => {
-  if (_.isObject(data)) {
-    const lines = Object
-      .entries(data)
-      .map(([key, value]) => `${indent(treeDepth + 1)}  ${key}: ${stringify(value, treeDepth + 1)}`);
+  if (!_.isObject(data)) {
+    return `${data}`;
+  }
+  if (data === null) { return null; }
 
-    return ['{', ...lines, `${indent(treeDepth)}  }`].join('\n');
-  } return `${test}`;
+  const lines = Object
+    .entries(data)
+    .map(([key, value]) => `${indent(treeDepth + 1)}  ${key}: ${stringify(value, treeDepth + 1)}`);
+
+  return ['{', ...lines, `${indent(treeDepth)}  }`].join('\n');
 };
 
 const makeStylishTree = (innerTree) => {
