@@ -3,13 +3,13 @@ import _ from 'lodash';
 const stringify = (value) => {
   if (_.isObject(value) && value !== null) {
     return '[complex value]';
-  } if (typeof value === 'string') {
+  } if (_.isString(value)) {
     return `'${value}'`;
   }
   return String(value);
 };
 
-const plain = (tree) => {
+const makePlainFormat = (tree) => {
   const format = (nodes, parent) => nodes
     .filter((node) => node.type !== 'unchanged')
     .map((node) => {
@@ -30,4 +30,4 @@ const plain = (tree) => {
   return format(tree, 0);
 };
 
-export default plain;
+export default makePlainFormat;

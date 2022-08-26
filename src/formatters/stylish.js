@@ -1,10 +1,11 @@
+import _ from 'lodash';
+
 const indent = (depth, spaceCount = 4) => ' '.repeat(spaceCount * depth - 2);
 
 const stringify = (data, treeDepth) => {
-  if (typeof data !== 'object') {
+  if (!_.isObject(data)) {
     return `${data}`;
   }
-  if (data === null) { return null; }
 
   const lines = Object
     .entries(data)
@@ -13,7 +14,7 @@ const stringify = (data, treeDepth) => {
   return ['{', ...lines, `${indent(treeDepth)}  }`].join('\n');
 };
 
-const formatTree = (innerTree) => {
+const makeStylishTree = (innerTree) => {
   const iterate = (tree, depth) => tree.map((node) => {
     const getValue = (value, sign) => `${indent(depth)}${sign} ${node.key}: ${stringify(value, depth)}\n`;
 
@@ -36,4 +37,4 @@ const formatTree = (innerTree) => {
   return `{\n${iterate(innerTree, 1).join('')}}`;
 };
 
-export default formatTree;
+export default makeStylishTree;
