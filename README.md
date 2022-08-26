@@ -6,9 +6,37 @@
 <h1><b>Вычислитель отличий</b></h1>
 Проект представляет собой программу, определяющую разницу между двумя структурами данных. Принимает два относительных или абсолютных пути с json и yaml файлами. Выводит отличия в их структуре в зависимости от указанного формата вывода - plain, stylish или json.   
 
-<h2><b>Пример работы</b></h2>
+<h2><b>Примеры работы</b></h2>
 
-[![asciicast](https://asciinema.org/a/516235.svg)](https://asciinema.org/a/516235)
+<h3><b>Плоские json файлы</b></h3>
+
+[![asciicast](https://asciinema.org/a/517244.svg)](https://asciinema.org/a/517244)
+
+---
+
+<h3><b>Плоские yaml файлы</b></h3>
+
+[![asciicast](https://asciinema.org/a/517245.svg)](https://asciinema.org/a/517245)
+
+---
+
+<h3><b>Рекурсивное сравнение</b></h3>
+
+[![asciicast](https://asciinema.org/a/517246.svg)](https://asciinema.org/a/517246)
+
+---
+
+<h3><b>Плоский формат вывода</b></h3>
+
+[![asciicast](https://asciinema.org/a/517247.svg)](https://asciinema.org/a/517247)
+
+---
+
+<h3><b>Вывод в формате json</b></h3>
+
+[![asciicast](https://asciinema.org/a/517248.svg)](https://asciinema.org/a/517248)
+
+---
 
 ---
 
