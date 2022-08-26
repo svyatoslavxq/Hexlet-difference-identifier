@@ -14,5 +14,3 @@ program
     console.log(genDiff(filepath1, filepath2, format));
   });
 program.parse();
-
-export default program;
