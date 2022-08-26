@@ -12,7 +12,7 @@ const getFixturePath = (filename) => resolve(__dirname, '..', '__fixtures__', fi
 
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
-const stylishResult = readFile('expectedOutput.txt');
+const stylishResult = readFile('expectedOutputStylish.txt');
 const plainResult = readFile('expectedOutputPlain.txt');
 const jsonResult = readFile('expectedOutputJson.txt');
 
