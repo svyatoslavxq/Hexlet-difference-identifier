@@ -21,7 +21,7 @@ const plain = (tree) => {
           return `Property '${property}' was removed`;
         case 'updated':
           return `Property '${property}' was updated. From ${stringify(node.valueOne)} to ${stringify(node.valueTwo)}`;
-        case 'recursion':
+        case 'nested':
           return `${format(node.children, property)}`;
         default:
           throw new Error(`Такого типа не существует ${node.type}`);

@@ -14,7 +14,7 @@ const format = (tree, formatName) => {
       return json(tree);
     }
     default:
-      throw new Error('Wrong format.');
+      throw new Error(`${formatName} is wrong format.`);
   }
 };
 

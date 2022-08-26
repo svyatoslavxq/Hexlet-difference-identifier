@@ -26,7 +26,7 @@ const formatTree = (innerTree) => {
         return getValue(node.value, ' ');
       case 'updated':
         return `${getValue(node.valueOne, '-')}${getValue(node.valueTwo, '+')}`;
-      case 'recursion':
+      case 'nested':
         return `${indent(depth)}  ${node.key}: {\n${iterate(node.children, depth + 1).join('')}${indent(depth)}  }\n`;
       default:
         throw new Error(`${node.type} is wrong type`);

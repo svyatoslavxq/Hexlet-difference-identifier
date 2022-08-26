@@ -1,6 +1,6 @@
 [
   {
-    "type": "recursion",
+    "type": "nested",
     "key": "common",
     "children": [
       {
@@ -37,11 +37,11 @@
         }
       },
       {
-        "type": "recursion",
+        "type": "nested",
         "key": "setting6",
         "children": [
           {
-            "type": "recursion",
+            "type": "nested",
             "key": "doge",
             "children": [
               {
@@ -67,7 +67,7 @@
     ]
   },
   {
-    "type": "recursion",
+    "type": "nested",
     "key": "group1",
     "children": [
       {
