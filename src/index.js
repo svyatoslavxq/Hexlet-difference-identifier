@@ -8,7 +8,7 @@ import format from './formatters/index.js';
 const buildAbsolutePath = (pathToBuild) => path.resolve(process.cwd(), pathToBuild);
 
 const readFile = (filePath) => {
-  const fileData = fs.readFileSync(buildAbsolutePath(filePath), { encoding: 'utf-8', flag: 'r' }).toString();
+  const fileData = fs.readFileSync(buildAbsolutePath(filePath), { encoding: 'utf-8' });
 
   return fileData;
 };
