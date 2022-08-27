@@ -1,3 +1,3 @@
-const makeJsonFormat = (tree) => JSON.stringify(tree, null, ' '.repeat(2));
+const makeJsonTree = (tree) => JSON.stringify(tree, null, ' '.repeat(2));
 
-export default makeJsonFormat;
+export default makeJsonTree;

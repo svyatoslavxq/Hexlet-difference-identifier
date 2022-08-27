@@ -9,7 +9,7 @@ const stringify = (value) => {
   return String(value);
 };
 
-const makePlainFormat = (tree) => {
+const makePlainTree = (tree) => {
   const format = (nodes, parent) => nodes
     .filter((node) => node.type !== 'unchanged')
     .map((node) => {
@@ -30,4 +30,4 @@ const makePlainFormat = (tree) => {
   return format(tree, 0);
 };
 
-export default makePlainFormat;
+export default makePlainTree;
