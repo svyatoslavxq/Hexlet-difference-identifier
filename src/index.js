@@ -15,7 +15,7 @@ const readFile = (filePath) => {
 
 const getFileFormat = (fileName) => path.extname(fileName).slice(1);
 
-const genDiff = (firstFilePath, secondFilePath, formatName) => {
+const genDiff = (firstFilePath, secondFilePath, fileFormat) => {
   const firstFileFormat = getFileFormat(firstFilePath);
   const secondFileFormat = getFileFormat(secondFilePath);
 
@@ -27,6 +27,6 @@ const genDiff = (firstFilePath, secondFilePath, formatName) => {
 
   const innerTree = makeTree(firstParsedData, secondParsedData);
 
-  return format(innerTree, formatName);
+  return format(innerTree, fileFormat);
 };
 export default genDiff;
