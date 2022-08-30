@@ -13,11 +13,11 @@ const readFile = (filePath) => {
   return fileData;
 };
 
-const fileFormat = (fileName) => path.extname(fileName).slice(1);
+const getFormatOfFile = (fileName) => path.extname(fileName).slice(1);
 
 const genDiff = (firstFilePath, secondFilePath, formatName = 'stylish') => {
-  const firstFileFormat = fileFormat(firstFilePath);
-  const secondFileFormat = fileFormat(secondFilePath);
+  const firstFileFormat = getFormatOfFile(firstFilePath);
+  const secondFileFormat = getFormatOfFile(secondFilePath);
 
   const firstFileContent = readFile(firstFilePath);
   const secondFileContent = readFile(secondFilePath);
