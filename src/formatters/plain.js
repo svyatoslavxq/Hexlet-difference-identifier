@@ -27,7 +27,7 @@ const makePlainTree = (tree) => {
           throw new Error(`Такого типа не существует ${node.type}`);
       }
     }).join('\n');
-  return format(tree, 0);
+  return format(tree);
 };
 
 export default makePlainTree;
