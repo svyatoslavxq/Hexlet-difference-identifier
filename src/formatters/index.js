@@ -2,8 +2,8 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-const formatTree = (innerTree, fileFormat) => {
-  switch (fileFormat) {
+const formatTree = (innerTree, formatName) => {
+  switch (formatName) {
     case 'stylish': {
       return stylish(innerTree);
     }
@@ -14,7 +14,7 @@ const formatTree = (innerTree, fileFormat) => {
       return json(innerTree);
     }
     default:
-      throw new Error(`${fileFormat} is wrong format.`);
+      throw new Error(`${formatName} is wrong format.`);
   }
 };
 
