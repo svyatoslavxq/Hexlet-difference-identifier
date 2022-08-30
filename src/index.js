@@ -15,7 +15,7 @@ const readFile = (filePath) => {
 
 const getFileFormat = (fileName) => path.extname(fileName).slice(1);
 
-const genDiff = (firstFilePath, secondFilePath, formatName = 'stylish') => {
+const genDiff = (firstFilePath, secondFilePath, formatName) => {
   const firstFileFormat = getFileFormat(firstFilePath);
   const secondFileFormat = getFileFormat(secondFilePath);
 
