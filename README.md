@@ -4,7 +4,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/144a49fede27ca8f5c42/test_coverage)](https://codeclimate.com/github/svyatoslavxq/frontend-project-lvl2/test_coverage)
 
 <h1><b>Identifier of differences</b></h1>
-The goal of this project: to practice building and recursive traverse of tree, learn commander.js, write jest tests, practice TDD, and practice setting up CI/CD.
+The goal of this project: to practice building and recursive traversing of tree, learn commander.js, write jest tests, practice TDD, and practice setting up CI/CD.
 
 Project passed all https://hexlet.io/ autotests and mentor's review.
 
