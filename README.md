@@ -4,7 +4,14 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/144a49fede27ca8f5c42/test_coverage)](https://codeclimate.com/github/svyatoslavxq/frontend-project-lvl2/test_coverage)
 
 <h1><b>Вычислитель отличий</b></h1>
-Проект представляет собой программу, определяющую разницу между двумя структурами данных. Принимает два относительных или абсолютных пути с json и yaml файлами. Выводит отличия в их структуре в зависимости от указанного формата вывода - plain, stylish или json.   
+The goal of this project: to practice building and recursive traverse of tree, learn commander.js, write jest tests, practice TDD, and practice setting up CI/CD.
+
+Project passed all https://hexlet.io/ autotests and mentor's review.
+
+Programm finds the differences in structure of two json or yaml files.
+
+Examples of work are below.
+
 
 <h2><b>Примеры работы</b></h2>
 
