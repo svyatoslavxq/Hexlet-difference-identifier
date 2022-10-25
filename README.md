@@ -13,21 +13,20 @@ Programm finds the differences in structure of two json or yaml files.
 Examples of work are below.
 
 
-<h2><b>Примеры работы</b></h2>
 
-<h3><b>Плоские json файлы</b></h3>
+<h3><b>Flat json files</b></h3>
 
 [![asciicast](https://asciinema.org/a/517244.svg)](https://asciinema.org/a/517244)
 
 ---
 
-<h3><b>Плоские yaml файлы</b></h3>
+<h3><b>Flat yaml files</b></h3>
 
 [![asciicast](https://asciinema.org/a/517245.svg)](https://asciinema.org/a/517245)
 
 ---
 
-<h3><b>Рекурсивное сравнение</b></h3>
+<h3><b>Recursive comparison</b></h3>
 
 [![asciicast](https://asciinema.org/a/517246.svg)](https://asciinema.org/a/517246)
 
@@ -39,7 +38,7 @@ Examples of work are below.
 
 ---
 
-<h3><b>Вывод в формате json</b></h3>
+<h3><b>Json mode output</b></h3>
 
 [![asciicast](https://asciinema.org/a/517248.svg)](https://asciinema.org/a/517248)
 
@@ -47,7 +46,7 @@ Examples of work are below.
 
 ---
 
-<h2><b>Команды</b></h2>
+<h2><b>Commands</b></h2>
 
 
 ```
@@ -57,7 +56,7 @@ Examples of work are below.
 ```
 ---
 
-<h3><b>Установка</b></h3>
+<h3><b>Install</b></h3>
 
 ```
 npm install gendiff
