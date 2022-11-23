@@ -32,7 +32,7 @@ Examples of work are below.
 
 ---
 
-<h3><b>Плоский формат вывода</b></h3>
+<h3><b>Plain output format</b></h3>
 
 [![asciicast](https://asciinema.org/a/517247.svg)](https://asciinema.org/a/517247)
 
@@ -63,8 +63,8 @@ npm install gendiff
 ```
 [![asciicast](https://asciinema.org/a/516996.svg)](https://asciinema.org/a/516996)
 
-<h3><b>Запуск</b></h3>
+<h3><b>Launch</b></h3>
 
 ```
-gendiff <путь к первому файлу> <путь ко второму файлу> 
+gendiff <first file path> <second file path> 
 ```
